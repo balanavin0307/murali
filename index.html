@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            margin: 5px 0;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Details Form</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" required><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" required><br>
+
+        <label for="course">Course:</label><br>
+        <input type="text" id="course" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Student Details</h2>
+    <div id="details"></div>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const course = document.getElementById('course').value;
+
+            const details = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Course:</strong> ${course}</p>
+            `;
+
+            document.getElementById('details').innerHTML = details;
+            this.reset(); // Reset form fields
+        });
+    </script>
+
+</body>
+</html>
